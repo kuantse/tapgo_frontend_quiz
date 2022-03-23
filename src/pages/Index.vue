@@ -83,7 +83,7 @@ const columns = [
   },
   {
     name: "fulfillment_status",
-    label: "fulfillment",
+    label: "Fulfillment",
     field: "fulfillment_status",
     align: "left",
   },

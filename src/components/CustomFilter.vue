@@ -28,7 +28,7 @@
             readonly
             hide-bottom-space
             input-class="text-h6"
-            label="配送日期"
+            label="Delivery Date"
             class="bg-white"
           >
             <template #append>
@@ -54,7 +54,7 @@
           <q-select
             v-model="filter.city"
             :options="CITY"
-            label="配送縣市"
+            label="City"
             outlined
             multiple
             emit-value
@@ -85,7 +85,7 @@
           <q-select
             v-model="filter.order_status"
             :options="ORDER_STATUS"
-            label="訂單狀態"
+            label="Status"
             clearable
             outlined
             class="bg-white"
@@ -96,7 +96,7 @@
           <q-select
             v-model="filter.financial_status"
             :options="FINANCIAL_STATUS"
-            label="付款狀態"
+            label="Payment"
             clearable
             outlined
             class="bg-white"
@@ -107,7 +107,7 @@
           <q-select
             v-model="filter.fulfillment_status"
             :options="FULFILLMENT_STATUS"
-            label="出貨狀態"
+            label="Fulfillment"
             clearable
             outlined
             class="bg-white"

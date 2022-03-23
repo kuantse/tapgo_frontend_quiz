@@ -122,7 +122,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const router = useRouter();
-    const form = reactive({ username: "wota", password: "wota123" });
+    const form = reactive({ username: "", password: "" });
     const rules = computed(() => ({
       username: [required("username"), charactor("username")],
       password: [required("password"), charactor("password")],

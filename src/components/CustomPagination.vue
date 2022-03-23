@@ -1,7 +1,7 @@
 <style lang="scss">
 .custom-pagination {
   &__per-page {
-    width: 120px;
+    width: 135px;
   }
 }
 </style>
@@ -12,7 +12,7 @@
       v-model="page"
       borderless
       :options="options"
-      label="每頁顯示筆數"
+      label="Records per page"
       class="custom-pagination__per-page"
     />
     <p class="row item-center q-mb-none q-mx-md">
@@ -84,7 +84,7 @@ export default defineComponent({
       const pageRows = page * rowsPerPage;
       const firstRowIndex = pageRows - (rowsPerPage - 1);
       const endRowIndex = pageRows;
-      return `${rowsNumber} 筆中的第 ${firstRowIndex} - ${endRowIndex}筆`;
+      return `${firstRowIndex} - ${endRowIndex} of ${rowsNumber}`;
     });
     const page = computed({
       get() {
