@@ -5,7 +5,7 @@
         <CustomPagination
           :q-page-info="scope"
           :pagination="$attrs.pagination"
-          :options="$attrs['rows-per-page-options']"
+          :rows-per-page-options="$attrs['rows-per-page-options']"
           @rows-per-page:change="handleRowsPerPageChange"
         />
       </template>
@@ -13,7 +13,7 @@
         <CustomPagination
           :q-page-info="scope"
           :pagination="$attrs.pagination"
-          :options="$attrs['rows-per-page-options']"
+          :rows-per-page-options="$attrs['rows-per-page-options']"
           @rows-per-page:change="handleRowsPerPageChange"
         />
       </template>

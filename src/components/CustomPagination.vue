@@ -90,8 +90,8 @@ export default defineComponent({
       get() {
         return props.pagination.rowsPerPage;
       },
-      set(v) {
-        emit("rows-per-page:change", v);
+      set(option) {
+        emit("rows-per-page:change", option.value);
       },
     });
     const options = props.rowsPerPageOptions.map((value) => ({

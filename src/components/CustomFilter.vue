@@ -1,6 +1,8 @@
 <style lang="scss">
-.custom-filter {
-  //
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
 
@@ -53,10 +55,30 @@
             v-model="filter.city"
             :options="CITY"
             label="配送縣市"
-            clearable
             outlined
+            multiple
+            emit-value
             class="bg-white"
-          />
+          >
+            <template #option="{ itemProps, opt, selected, toggleOption }">
+              <q-item v-bind="itemProps">
+                <q-item-section thumbnail>
+                  <q-checkbox
+                    :model-value="selected"
+                    @update:model-value="toggleOption(opt)"
+                  ></q-checkbox>
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>{{ opt }}</q-item-label>
+                </q-item-section>
+              </q-item>
+            </template>
+            <template #selected>
+              <p class="q-mb-none text-truncate">
+                {{ filter.city.join(", ") }}
+              </p>
+            </template>
+          </q-select>
         </div>
         <!-- order -->
         <div class="col-xs-6 col-sm-4 col-md-2">
@@ -98,7 +120,7 @@
 
 <script>
 import { defineComponent, reactive, ref, watch } from "vue";
-import { exportFile, useQuasar } from "quasar";
+import { exportFile } from "quasar";
 
 const CITY = ["台北市", "新北市", "新竹市", "台南市", "高雄市"];
 const FINANCIAL_STATUS = ["paid", "pending", "refunded"];
@@ -139,7 +161,7 @@ export default defineComponent({
     const qDateProxy = ref(null);
     const filter = reactive({
       delivery_date: "",
-      city: "",
+      city: [],
       order_status: "",
       financial_status: "",
       fulfillment_status: "",
